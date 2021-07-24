@@ -1,14 +1,14 @@
 # ワークフロー名
-name: greeting_linebot
+name: food_linebot
 
 # プログラムの実行タイミング
-# 日本時刻の朝7時に定期処理(分 時 日 月 曜日)
+# 16:00に定期処理(分 時 日 月 曜日)
 # 曜日指定には [0, 6] の整数を使用する。 0=日曜日 ~ 6=土曜日
 # github ActionsはUTCを扱っている．JST = UTC + 09:00であるため，JSTから9時間分マイナスした時刻を指定する．
 on:
   #push:
   schedule:
-    - cron: '0 22 * * *'
+    - cron: '0 7 * * *'
 
 jobs:
   build:
@@ -32,6 +32,6 @@ jobs:
           pip install line-bot-sdk
       - name: Run script
         run: |
-          # main.pyの実行
-          python main.py
+          # メッセージを送るプログラムの実行
+          python food.py
 
