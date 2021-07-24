@@ -1,0 +1,37 @@
+# ワークフロー名
+name: greeting_linebot
+
+# プログラムの実行タイミング
+# 日本時刻の朝7時に定期処理(分 時 日 月 曜日)
+# 曜日指定には [0, 6] の整数を使用する。 0=日曜日 ~ 6=土曜日
+# github ActionsはUTCを扱っている．JST = UTC + 09:00であるため，JSTから9時間分マイナスした時刻を指定する．
+on:
+  push:
+  #schedule:
+   # - cron: '0 22 * * *'
+
+jobs:
+  build:
+    # Ubuntuの最新版環境内で処理を実行することを指定
+    runs-on: ubuntu-latest
+
+    # 実行する処理＆コマンド指定
+    steps:
+      # 実行環境の指定
+      # リポジトリからチェックアウトして以下の処理を実行していく
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Install dependencies
+        run: |
+          # pip更新
+          python -m pip install --upgrade pip
+          # 必要なパッケージインストール
+          pip install line-bot-sdk
+      - name: Run script
+        run: |
+          # main.pyの実行
+          python main.py
+
