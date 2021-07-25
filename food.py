@@ -24,7 +24,7 @@ def main():
     line_bot_api.push_message(USER_ID, messages=messages)
 
     # そのあとでメッセージを送信
-    text = random.choice(df.loc['food_firsthalf']) + random.choice(df.loc['food_latterhalf'])
+    text = random.choice(df.loc['food_firsthalf']) + random.choice(df.loc['food_latterhalf']) + "\U0001F37D"
     messages = TextSendMessage(text=text)
     line_bot_api.push_message(USER_ID, messages=messages)
 

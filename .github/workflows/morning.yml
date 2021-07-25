@@ -6,7 +6,7 @@ name: morning_linebot
 # 曜日指定には [0, 6] の整数を使用する。 0=日曜日 ~ 6=土曜日
 # github ActionsはUTCを扱っている．JST = UTC + 09:00であるため，JSTから9時間分マイナスした時刻を指定する．
 on:
-  push:
+  #push:
   schedule:
     - cron: '0 22 * * *'
 

@@ -18,7 +18,7 @@ df = pd.read_csv('wordlist.csv', index_col=0)
 # botに実行してもらいたい処理を記述
 def main():
     USER_ID = info['USER_ID']
-    text = "おはよう！\n" + random.choice(df.loc['morning'])
+    text = "おはよう" + "\U00002600\n" + random.choice(df.loc['morning'])
     messages = TextSendMessage(text=text)
     line_bot_api.push_message(USER_ID, messages=messages)
 
