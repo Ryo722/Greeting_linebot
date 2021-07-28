@@ -8,7 +8,7 @@ name: nighttime_linebot
 on:
   #push:
   schedule:
-    - cron: '30 11 * * *'
+    - cron: '30 14 * * *'
 
 jobs:
   build:
